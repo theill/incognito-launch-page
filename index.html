@@ -18,28 +18,46 @@
 				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
-
-			var sentences = ["i love", "i hate", "i think", "i believe", "i feel", "i wish"];
-			var sentence = sentences[0];
-			var re = new RegExp(sentence, "gi");
 			
-			$(function() {
-				$(".selected-sentence").text(sentence);
+			var sentences = ["i love", "i hate", "i think", "i believe", "i feel", "i wish"];
+			var sentence;
+			
+			function setupSearch(s) {
+				sentence = s;
 				
-				$("#available-sentences").html("<ul>"+ $.map(sentences, function(ia) { return "<li>" + ia + "</li>" }) +"</ul>");
+				var sentenceRegEx = new RegExp(sentence, "gi");
 				
 				$("#twitterSearch").liveTwitter('"' + sentence + '"', { limit: 5, rate: 3000, lang: 'en', timeLinks: false }, function(container, newCount) {
 					texts = $(container).find(".tweet p.text");
 					$(texts).each(function(cnt, p) {
-						// $(p).html($(p).html().replace(re, '<span class="sentence">' + sentence + "</span>"));
+						$(p).html($(p).html().replace(sentenceRegEx, "<span class=\"" + sentence.replace(/ /g, '-') + "\">" + sentence + "</span>"));
 					});
 				});
+			}
+			
+			$(function() {
+				$("#available-sentences").html("<ul>" + $.map(sentences, function(ia, idx) {
+					return "<li data-sentence=\"" + ia + "\" class='" + ia.replace(/ /g, '-') + "'><span>" + ia + "</span></li>"
+					}).join("") + "</ul>");
+				
+				$("#available-sentences ul li").click(function() {
+					$("#available-sentences li").removeClass("selected");
+					
+					$(this).addClass("selected");
+					
+					setupSearch($(this).attr("data-sentence"));
+				});
+				
+				sentence = sentences[Math.floor(Math.random()*sentences.length)];
+				
+				$("#available-sentences ul li." + sentence.replace(/ /g, '-')).addClass("selected");
+				setupSearch(sentence);
 			});
 
 		</script>		
 	</head>
   <body id="disabled-{{ body_id }}">
-	
+		
 		<div id="search">
 			<div id="cse" style="width: 100%;">Loading</div>
 			<script src="http://www.google.com/jsapi" type="text/javascript"></script>
@@ -65,11 +83,12 @@
 		<div id="casual">
 			<h1>Casual browsing</h1>
 			<!-- <div class="logo"><img src="/img/logo-72.png" alt=""></div> -->
+			<div id="available-sentences"></div>
 			<div id="twitterSearch"></div>
 		</div>
 		
 		<div id="tip">
-			The "Casual browsing" mode is powered by Twitter.
+			The "Casual browsing" mode is powered by Twitter and inspired by twistori.
 		</div>
 		
 		<div class="adouter">
