@@ -28,7 +28,7 @@
 				
 				$("#available-sentences").html("<ul>"+ $.map(sentences, function(ia) { return "<li>" + ia + "</li>" }) +"</ul>");
 				
-				$("#twitterSearch").liveTwitter('"' + sentence + '"', { limit: 5, rate: 15000, lang: 'en', timeLinks: false }, function(container, newCount) {
+				$("#twitterSearch").liveTwitter('"' + sentence + '"', { limit: 5, rate: 3000, lang: 'en', timeLinks: false }, function(container, newCount) {
 					texts = $(container).find(".tweet p.text");
 					$(texts).each(function(cnt, p) {
 						// $(p).html($(p).html().replace(re, '<span class="sentence">' + sentence + "</span>"));
