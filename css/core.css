@@ -163,6 +163,7 @@ body {
 
 		#twitterSearch .tweet .time {
 			color: #999;
+			display: none;
 		}
 
 .adouter {
