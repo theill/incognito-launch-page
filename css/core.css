@@ -1,7 +1,12 @@
 body {
 	margin: 0;
 	background-color: #333;
-	color: #fff;
+/*	color: #fff;*/
+/*	background: #f9f9f9 url(/img/top.png) repeat-x fixed top left;*/
+}
+
+#tip {
+	color: #999;
 }
 
 #darkblue {
@@ -13,7 +18,7 @@ body {
 }
 
 	#lightblue #tip {
-		color: #333;
+		color: #fff;
 	}
 
 #yellow {
@@ -40,7 +45,7 @@ body {
 	background-color: #fff;
 	width: 620px;
 	padding: 10px;
-	margin: 30px auto;
+	margin: 30px auto 0;
 	-webkit-box-shadow: 0 0 6px #999;
 }
 
@@ -56,19 +61,67 @@ body {
 		color: #666;
 	}
 
-#tip {
+#casual {
+	background-color: #fff;
 	width: 620px;
 	padding: 10px;
-	margin: 30px auto;
+	margin: 30px auto 0;
+	-webkit-box-shadow: 0 0 6px #999;
+}
+
+	#casual h1 {
+		background: transparent url(/img/incognito-casual.png) no-repeat top center;
+		height: 60px;
+		margin: 0;
+		text-indent: -1000px;
+	}
+
+.logo {
+	margin: 10px 0 0 10px;
+	width: 72px;
+	height: 72px;
+	-webkit-box-shadow: 0 0 5px #fff;
+	display: inline-block;
+}
+
+#tip {
+	width: 620px;
+	padding: 0 10px;
+	margin: 10px auto;
 	font-family: "Sans serif", Verdana;
 	font-size: 12px;
 }
 
+#twitterSearch {}
+	#twitterSearch .tweet {
+		border-bottom: 1px solid #e9e9e9;
+		padding: 10px;
+		margin-bottom: 10px;
+		font-size: 12px;
+		font-family: "Sans serif", Verdana;
+	}
+	
+		#twitterSearch .tweet img {
+			float: left;
+		}
 
-#hint {
-/*	background: transparent url(/img/back.png) no-repeat fixed top left;*/
-/*	height: 400px;*/
-}
+		#twitterSearch .tweet .username {
+			display: none;
+		}
+		
+		#twitterSearch .tweet p {
+			margin: 0 0 0 34px;
+			min-height: 24px;
+		}
+		
+		#twitterSearch .tweet .sentence {
+/*			color: red;*/
+			font-weight: bold;
+		}
+
+		#twitterSearch .tweet .time {
+			color: #999;
+		}
 
 .adouter {
 	text-align: center;

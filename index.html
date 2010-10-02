@@ -4,6 +4,7 @@
 		<meta name="viewport" content="width=device-width" />
 		<link type="text/css" rel="stylesheet" href="/css/core.css" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+		<script src="/js/jquery.livetwitter.min.js" type="text/javascript"></script>
 		<script src="/js/core.js" type="text/javascript"></script>
 		<script type="text/javascript">
 
@@ -18,13 +19,27 @@
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
 
+			var sentences = ["i love", "i hate", "i think", "i believe", "i feel", "i wish"];
+			var sentence = sentences[0];
+			var re = new RegExp(sentence, "gi");
+			
+			$(function() {
+				$(".selected-sentence").text(sentence);
+				
+				$("#available-sentences").html("<ul>"+ $.map(sentences, function(ia) { return "<li>" + ia + "</li>" }) +"</ul>");
+				
+				$("#twitterSearch").liveTwitter('"' + sentence + '"', { limit: 5, rate: 15000, lang: 'en', timeLinks: false }, function(container, newCount) {
+					texts = $(container).find(".tweet p.text");
+					$(texts).each(function(cnt, p) {
+						// $(p).html($(p).html().replace(re, '<span class="sentence">' + sentence + "</span>"));
+					});
+				});
+			});
+
 		</script>		
 	</head>
-  <body id="{{ body_id }}">
-		<div id="hint">
-			
-		</div>
-		
+  <body id="disabled-{{ body_id }}">
+	
 		<div id="search">
 			<div id="cse" style="width: 100%;">Loading</div>
 			<script src="http://www.google.com/jsapi" type="text/javascript"></script>
@@ -47,6 +62,16 @@
 			This browser doesn't remember the pages you visit or your search history and it clears all cookies when you quit.
 		</div>
 		
+		<div id="casual">
+			<h1>Casual browsing</h1>
+			<!-- <div class="logo"><img src="/img/logo-72.png" alt=""></div> -->
+			<div id="twitterSearch"></div>
+		</div>
+		
+		<div id="tip">
+			The "Casual browsing" mode is powered by Twitter.
+		</div>
+		
 		<div class="adouter">
 			<div id="ad">
 				<script type="text/javascript"><!--
@@ -59,5 +84,13 @@
 				<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 			</div>
 		</div>
+		
+		<script type="text/javascript">
+		document.write(unescape("%3Cscript type='text/javascript' src='" + (("https:" == document.location.protocol) ? "https://ssl" : "http://t") + ".visitstreamer.com/vs.js'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+		try {var _vsTracker = _vs.createTracker("1bt-ESPLoWg7v"); _vsTracker.trackPageview();}catch(e){}
+		</script>
+		<noscript><div><a href="http://www.visitstreamer.com"><img alt="Real-time web tracking by Visit Streamer" width="1" height="1" src="//1bt.s.visitstreamer.com/s1bt-ESPLoWg7v.gif" /></a></div></noscript>
   </body>
 </html>
