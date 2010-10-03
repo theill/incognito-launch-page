@@ -32,7 +32,7 @@ var casualBrowsing = {
 			});
 		});
 		
-		window.setTimeout('casualBrowsing.randomChange()', 5000);
+		window.setTimeout('casualBrowsing.randomChange()', 60 * 1000);
 	}
 };
 
