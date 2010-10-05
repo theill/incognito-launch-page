@@ -21,26 +21,27 @@
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
 			
-		</script>		
+		</script>
+		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+		<script type="text/javascript">
+		  google.load('search', '1', {language : 'en', style:google.loader.themes.MINIMALIST});
+		  google.setOnLoadCallback(function() {
+		    var customSearchControl = new google.search.CustomSearchControl('partner-pub-8907174049372989:nknytvdvck0');
+		    customSearchControl.setResultSetSize(google.search.Search.LARGE_RESULTSET);
+				customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_SELF);
+				// customSearchControl.addSearcher(new google.search.WebSearch());
+				// customSearchControl.addSearcher(new google.search.VideoSearch());
+				// customSearchControl.addSearcher(new google.search.ImageSearch());
+		    var options = new google.search.DrawOptions();
+		    options.setAutoComplete(true);
+		    customSearchControl.draw('cse', options);
+		  }, true);
+		</script>
 	</head>
 	<body id="x-{{ body_id }}">
 		
 		<div id="search">
-			<div id="cse" style="width: 100%; min-height: 35px"></div>
-			<script src="http://www.google.com/jsapi" type="text/javascript"></script>
-			<script type="text/javascript">
-			  google.load('search', '1', {language : 'en'});
-			  google.setOnLoadCallback(function() {
-			    var customSearchControl = new google.search.CustomSearchControl('partner-pub-8907174049372989:nknytvdvck0');
-			    customSearchControl.setResultSetSize(google.search.Search.LARGE_RESULTSET);
-					customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_SELF);
-					customSearchControl.addSearcher(new google.search.VideoSearch());
-					customSearchControl.addSearcher(new google.search.ImageSearch());
-			    var options = new google.search.DrawOptions();
-			    options.setAutoComplete(true);
-			    customSearchControl.draw('cse', options);
-			  }, true);
-			</script>
+			<div id="cse" style="width: 100%; min-height: 80px"></div>
 		</div>
 		
 		<div id="tip">
