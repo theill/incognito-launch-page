@@ -62,6 +62,10 @@ body {
 		display: none;
 	}
 	
+	#search .gsc-clear-button {
+		display: none;
+	}
+	
 	.gs-snippet {
 		color: #666;
 	}
