@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Incognito browser for iPad</title>
-		<meta name="viewport" content="width=device-width" />
-		<link type="text/css" rel="stylesheet" href="/css/core.css" />
+		<meta name="viewport" content="width=device-width">
+		<link type="text/css" rel="stylesheet" href="/css/core.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
 		<script src="/js/jquery.livetwitter.min.js" type="text/javascript"></script>
 		<script src="/js/core.js" type="text/javascript"></script>
@@ -10,10 +11,10 @@
 		
 			window.google_analytics_uacct = "UA-617778-10";
 			
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-617778-10']);
-		  _gaq.push(['_setDomainName', '.commanigy.com']);
-		  _gaq.push(['_trackPageview']);
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-617778-10']);
+			_gaq.push(['_setDomainName', '.commanigy.com']);
+			_gaq.push(['_trackPageview']);
 
 			(function() {
 				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -24,18 +25,18 @@
 		</script>
 		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 		<script type="text/javascript">
-		  google.load('search', '1', {language : 'en', style:google.loader.themes.MINIMALIST});
-		  google.setOnLoadCallback(function() {
-		    var customSearchControl = new google.search.CustomSearchControl('partner-pub-8907174049372989:nknytvdvck0');
-		    customSearchControl.setResultSetSize(google.search.Search.LARGE_RESULTSET);
+			google.load('search', '1', {language : 'en'});
+			google.setOnLoadCallback(function() {
+				var customSearchControl = new google.search.CustomSearchControl('partner-pub-8907174049372989:nknytvdvck0');
+				customSearchControl.setResultSetSize(google.search.Search.LARGE_RESULTSET);
 				customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_SELF);
 				// customSearchControl.addSearcher(new google.search.WebSearch());
 				// customSearchControl.addSearcher(new google.search.VideoSearch());
 				// customSearchControl.addSearcher(new google.search.ImageSearch());
-		    var options = new google.search.DrawOptions();
-		    options.setAutoComplete(true);
-		    customSearchControl.draw('cse', options);
-		  }, true);
+				var options = new google.search.DrawOptions();
+				options.setAutoComplete(true);
+				customSearchControl.draw('cse', options);
+			}, true);
 		</script>
 	</head>
 	<body id="x-{{ body_id }}">
@@ -58,5 +59,27 @@
 			The "Casual browsing" mode is powered by Twitter and inspired by twistori.
 		</div>
 		
-  </body>
+		<div style="display: none;" class="version_1_3">
+			{% if bookmarks %}
+				<div id="starred">
+					<ul>
+						{% for bookmark in bookmarks %}
+							<li>
+								<a href="{{ bookmark.url }}">
+									<div class="thumbnail"></div>
+									<div class="title">{{ bookmark.title|escape }}</div>
+								</a></li>
+						{% endfor %}
+					</ul>
+					<div style="clear: both"></div>
+				</div>
+			{% else %}
+				<div id="starred" class="blank">
+					<h2>No Starred Sites</h2>
+					<p>Add site here by pressing star in addressbar</p>
+				</div>
+			{% endif %}
+		</div>
+		
+	</body>
 </html>

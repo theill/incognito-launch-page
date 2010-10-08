@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Incognito browser for iPad</title>
+		<meta name="viewport" content="width=device-width" />
+		<link type="text/css" rel="stylesheet" href="/css/core.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+		<script src="/js/core.js" type="text/javascript"></script>
+		<script type="text/javascript">
+		
+			window.google_analytics_uacct = "UA-617778-10";
+			
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-617778-10']);
+		  _gaq.push(['_setDomainName', '.commanigy.com']);
+		  _gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+			
+		</script>
+	</head>
+	<body class="starred">
+		
+		<ul>
+			{% for bookmark in bookmarks %}
+				<li>
+					<div class="thumbnail">
+				
+					</div>
+					<b>{{ bookmark.url|escape }}</b>
+				</li>
+			{% endfor %}
+		</ul>
+		
+		<form action="/star" method="post" accept-charset="utf-8">
+			<input type="text" name="url" value="http://test.com" id="test">
+			<input type="text" name="uuid" value="123456" id="uuid">
+
+			<p><input type="submit" value="submit"></p>
+		</form>
+		
+		<a href="/starred">bookmarks</a>
+			
+  </body>
+</html>

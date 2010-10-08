@@ -1,6 +1,8 @@
 body {
 	margin: 0;
 	background-color: #333;
+	color: #fff;
+	font-family: "Sans serif", Verdana;
 }
 
 #tip {
@@ -158,3 +160,80 @@ body {
 			color: #999;
 			display: none;
 		}
+
+#starred {
+	width: 620px;
+	padding: 10px;
+	margin: 30px auto 0;
+	-webkit-box-shadow: 0 0 5px #666;
+	color: #fff;
+}
+
+	#starred.blank {
+	  font-family: 'Heiti SC', serif;
+		text-shadow: #000 1px 1px 2px;
+		background: #222 url(/img/star.png) no-repeat scroll center 20px;
+		height: 240px;
+		text-align: center;
+	}
+		#starred.blank h2 {
+			margin: 160px 0 0 0;
+		}
+		#starred.blank p {
+		}
+	
+	#starred a {
+		color: #fff;
+	}
+	
+	#starred ul,
+	#starred li {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+		#starred ul li {
+			width: 200px;
+			float: left;
+			margin-right: 10px;
+		}
+		#starred ul li:last-child {
+			margin-right: 0;
+		}
+		
+	#starred .thumbnail {
+/*		background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#ffffff));*/
+		background: #ccc url(/img/thumbnail-blank.png) no-repeat scroll center center;
+		width: 200px;
+		height: 150px;
+	}
+	
+	#starred .title {
+		width: 200px;
+		font-size: 11px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		margin-top: 5px;
+	}
+
+.starred {}
+	.starred .thumbnail {
+		background-color: #666;
+		border: solid 1px #999;
+		width: 240px;
+		height: 160px;
+	}
+	.starred ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.starred li {
+		float: left;
+		margin-right: 20px;
+	}

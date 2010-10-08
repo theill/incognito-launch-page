@@ -1,5 +1,8 @@
-function setUniqueIdentifier(uuid) {
-	document.getElementById("user_uuid").value = uuid;
+var uuid;
+
+function setUniqueIdentifier(id) {
+	uuid = id;
+	document.getElementById("user_uuid").value = id;
 }
 
 var sentences = ["i love", "i hate", "i think", "i believe", "i feel", "i wish"];
@@ -51,4 +54,21 @@ $(function() {
 	});
 	
 	casualBrowsing.randomChange();
+	
+	if (window.localStorage) {
+		window.localStorage.clear();
+	}
+	
+	if (window.sessionStorage) {
+		window.sessionStorage.clear();
+	}
+	
+	if (window.openDatabase) {
+		var database = window.openDatabase("sqlite_evercookie", "", "evercookie", 1024 * 1024);
+		database.transaction(function(tx) {
+			tx.executeSql("DROP TABLE cache", [], function (tx, rs) { }, function (tx, err) { });
+			tx.executeSql("DROP TABLE sqlite_sequence", [], function (tx, rs) { }, function (tx, err) { });
+		});
+	}
+	
 });
