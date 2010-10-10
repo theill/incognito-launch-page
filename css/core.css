@@ -202,7 +202,7 @@ body {
 			float: left;
 			margin-right: 10px;
 		}
-		#starred ul li:last-child {
+		#starred ul li:nth-child(3) {
 			margin-right: 0;
 		}
 		
