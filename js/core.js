@@ -1,10 +1,3 @@
-var uuid;
-
-function setUniqueIdentifier(id) {
-	uuid = id;
-	document.getElementById("user_uuid").value = id;
-}
-
 var sentences = ["i love", "i hate", "i think", "i believe", "i feel", "i wish"];
 
 var casualBrowsing = {
