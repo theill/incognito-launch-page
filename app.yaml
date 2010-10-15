@@ -6,6 +6,9 @@ api_version: 1
 derived_file_type:
 - python_precompiled
 
+builtins:
+- datastore_admin: on
+
 handlers:
 - url: /css
   static_dir: css
