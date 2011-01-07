@@ -65,6 +65,34 @@ body {
 		display: none;
 	}
 	
+	#search input.gsc-search-button {
+		-webkit-border-radius: 3px;
+		font: bold 13px "Helvetica Neue", Arial, Geneva, sans-serif;
+		padding: 4px 30px;
+		cursor: pointer;
+		background: -webkit-gradient(
+				linear,
+				left top,
+				left bottom,
+				from(#eee),
+				to(#c4c4c4)
+			);
+		border: 1px solid #a0a0a0;
+		-webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, .5);
+		color: #4f4f4f;
+		text-shadow: 0 1px 1px rgba(255, 255, 255, .5);
+		-webkit-transition: -webkit-box-shadow .1s linear;
+		display: inline-block;
+		text-decoration: none;
+		
+		-webkit-animation-direction: alternate;
+		-webkit-animation-name: 'm-1';
+		-webkit-animation-duration: 1s;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-timing-function: ease-in-out;
+		-webkit-box-shadow: 0 0 4px #6998ff;
+	}
+	
 	.gs-snippet {
 		color: #666;
 	}
