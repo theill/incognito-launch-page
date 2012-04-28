@@ -46,6 +46,7 @@ body {
 	background-color: #ff3214;
 }
 
+
 #search {
 	background-color: #fff;
 	padding: 10px;
@@ -53,8 +54,10 @@ body {
 	-webkit-box-shadow: 0 0 6px #999;
 }
 
-	#search input[type="text"] {
+	#search input.gsc-input {
 		font-size: 20px !important;
+		width: 100%;
+/*		border: 1px solid #999;*/
 	}
 
 	#search .gsc-branding {
@@ -63,6 +66,34 @@ body {
 	
 	#search .gsc-clear-button {
 		display: none;
+	}
+	
+	#search .gsc-resultsbox-visible {
+		padding-top: 10px;
+	}
+	
+	/* Set link colors. */
+	#search .cse .gs-webResult.gs-result a.gs-title:link,
+	.gs-webResult.gs-result a.gs-title:link,
+	.cse .gs-webResult.gs-result a.gs-title:link b,
+	.gs-webResult.gs-result a.gs-title:link b,
+	.cse .gs-webResult.gs-result a.gs-title:visited,
+	.gs-webResult.gs-result a.gs-title:visited,
+	.cse .gs-webResult.gs-result a.gs-title:visited b,
+	.gs-webResult.gs-result a.gs-title:visited b,
+	.cse .gs-webResult.gs-result a.gs-title:hover,
+	.gs-webResult.gs-result a.gs-title:hover,
+	.cse .gs-webResult.gs-result a.gs-title:hover b,
+	.gs-webResult.gs-result a.gs-title:hover b,
+	.cse .gsc-cursor-page,
+	.gsc-cursor-page,
+	.cse .gsc-trailing-more-results:link,
+	.gsc-trailing-more-results:link {
+	  color: #333;
+	}	
+
+	.gsc-completion-container {
+		color: #666;
 	}
 	
 	#search input.gsc-search-button {
