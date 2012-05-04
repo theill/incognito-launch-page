@@ -15,6 +15,10 @@ body {
 	text-align: center;
 }
 
+#tip a {
+	color: #ccc;
+}
+
 #darkblue {
 	background-color: #00c3fe;
 }
