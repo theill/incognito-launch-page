@@ -28,7 +28,7 @@ var casualBrowsing = {
 			});
 		});
 		
-		window.setTimeout('casualBrowsing.randomChange()', 60 * 1000);
+		window.setTimeout('casualBrowsing.randomChange()', 20 * 1000);
 	}
 };
 

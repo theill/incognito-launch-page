@@ -6,13 +6,12 @@ body {
 }
 
 #tip {
-	width: 75%;
-	padding: 0 10px;
-	margin: 10px auto;
+	width: 100%;
 	font-family: "Sans serif", Verdana;
 	font-size: 12px;
 	color: #999;
 	text-align: center;
+	padding: 100px 0 10px 0;
 }
 
 #tip a {
@@ -154,7 +153,7 @@ body {
 .selected { color: white; }
 
 #casual {
-	width: 620px;
+	width: 80%;
 	padding: 10px;
 	margin: 30px auto 0;
 	-webkit-box-shadow: 0 0 5px #666;
