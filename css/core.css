@@ -173,7 +173,9 @@ body {
 	float: left;
 	width: 100px;
 	font-size: 18px;
-	font-family: Futura-CondensedExtraBold;
+	font-family: Arial;
+	font-weight: bold;
+	/*font-family: Futura-CondensedExtraBold;*/
 }
 
 	#available-sentences ul {
