@@ -33,20 +33,20 @@ var casualBrowsing = {
 };
 
 $(function() {
-	// $("#available-sentences").html("<ul>" + $.map(sentences, function(ia, idx) {
-	// 	return "<li data-sentence=\"" + ia + "\" class='" + ia.replace(/ /g, '-') + "'><span>" + ia + "</span></li>"
-	// 	}).join("") + "</ul>");
-	// 
-	// $("#available-sentences ul li").click(function() {
-	// 	$("#available-sentences li").removeClass("selected");
-	// 	
-	// 	$(this).addClass("selected");
-	// 	
-	// 	casualBrowsing.sentence = $(this).attr("data-sentence");
-	// 	casualBrowsing.setup();
-	// });
-	// 
-	// casualBrowsing.randomChange();
+	$("#available-sentences").html("<ul>" + $.map(sentences, function(ia, idx) {
+		return "<li data-sentence=\"" + ia + "\" class='" + ia.replace(/ /g, '-') + "'><span>" + ia + "</span></li>"
+		}).join("") + "</ul>");
+	
+	$("#available-sentences ul li").click(function() {
+		$("#available-sentences li").removeClass("selected");
+		
+		$(this).addClass("selected");
+		
+		casualBrowsing.sentence = $(this).attr("data-sentence");
+		casualBrowsing.setup();
+	});
+	
+	casualBrowsing.randomChange();
 	
 	if (window.localStorage) {
 		window.localStorage.clear();
