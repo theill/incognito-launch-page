@@ -22,6 +22,7 @@ from google.appengine.ext.webapp import template
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 from google.appengine.ext import db
+import webapp2
 
 class Bookmark(db.Model):
 	uuid = db.StringProperty()
@@ -100,12 +101,25 @@ class BookmarkHandler(webapp.RequestHandler):
 			self.response.out.write('NOTHING PERFORMED')
 			pass
 
+class MainPage(webapp2.RequestHandler):
+	def get(self):
+		template_values = {
+			'body_id': self.random_body_id()
+		}
+		
+		path = os.path.join(os.path.dirname(__file__), 'index.html')
+		self.response.out.write(template.render(path, template_values))
 
-def main():
-	logging.getLogger().setLevel(logging.DEBUG)
-	application = webapp.WSGIApplication([('/', MainHandler), ('/star', BookmarkHandler), ('/star', BookmarkHandler), ('/starred', BookmarksHandler)], debug=True)
-	util.run_wsgi_app(application)
+	def random_body_id(self):
+		return random.choice(["darkblue", "lightblue", "yellow", "lightred", "darkred"])
 
+app = webapp2.WSGIApplication([('/', MainPage)])
 
-if __name__ == '__main__':
-	main()
+#def main():
+#	logging.getLogger().setLevel(logging.DEBUG)
+#	application = webapp.WSGIApplication([('/', MainHandler), ('/star', BookmarkHandler), ('/star', BookmarkHandler), ('/starred', BookmarksHandler)], debug=True)
+#	util.run_wsgi_app(application)
+#
+#
+#if __name__ == '__main__':
+#	main()
