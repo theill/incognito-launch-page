@@ -28,6 +28,27 @@
       <footer>
         <p>Color Browser is a fast, free and simple to use browser.</p>
         <p><small>You don't need to pay anything for it but if you like it I would appreciate if you could use a couple of minutes and <a href="itms-apps://itunes.apple.com/app/id392746207?at=10l6dK">rate it on the App Store</a>.</small></p>
+        <hr />
+        <p>
+          <small>Or if you are one of the cool kids you're able to donate any number of Bitcoins by tapping the button below.</small>
+        </p>
+        <center>
+          <script src="/js/coin.js"></script>
+          <script>
+          CoinWidgetCom.go({
+            wallet_address: "1Jn6CSoHhWV2BUdSZ7xQjeLFkK6kf35xZc"
+            , currency: "bitcoin"
+            , counter: "hide"
+            , alignment: "al"
+            , qrcode: false
+            , auto_show: false
+            , lbl_button: "Donate"
+            , lbl_address: "My Bitcoin Address:"
+            , lbl_count: "donations"
+            , lbl_amount: "BTC"
+          });
+          </script>
+        </center> 
       </footer>
     </div>
     <script src="/js/scale.fix.js"></script>
