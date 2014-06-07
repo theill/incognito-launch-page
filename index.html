@@ -6,6 +6,15 @@
     <title>Color Browser</title>
     <link rel="stylesheet" href="/css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script type="text/javascript">
+        var trackOutboundLink = function(url) {
+         ga('send', 'event', 'outbound', 'click', url, {'hitCallback':
+           function () {
+           document.location = url;
+           }
+         });
+      }
+    </script>
     <style type="text/css">
     .resTitle a {
       color: #ff0000 !important;
@@ -32,32 +41,24 @@
         </p>
 
         <center>
+          <h3>Free Dropbox Account?</h3>
+          
+          <p>
+            Would you like a free Dropbox account with 2GB+ of space? Then <a href="https://db.tt/TdlgoXlR" onclick="trackOutboundLink('https://db.tt/TdlgoXlR'); return false;">sign up in 30 seconds</a> now.
+          </p>
+
+          <hr />
+
           <h3>Interested in artwork?</h3>
           <p>
-            Maybe not you .. but you kid? Try my newest app "BabyArt" - it's awesome :)
+            Maybe not you .. but you toddler? Try my newest iPad app "BabyArt" - it's awesome :)
           </p>
           <p>
-            <a href="https://itunes.apple.com/us/app/baby-art-draw-beautiful-artwork/id852478507?ls=1&mt=8">
+            <a href="https://itunes.apple.com/us/app/baby-art-draw-beautiful-artwork/id852478507?ls=1&mt=8" onclick="trackOutboundLink('https://itunes.apple.com/us/app/baby-art-draw-beautiful-artwork/id852478507?ls=1&mt=8'); return false;">
               <img src="/img/babyart.png"> <img src="/img/appstore.png">
             </a>
           </p>
         </center>
-
-<!--
-        <h3>Some Quick Searches</h3>
-        <div style="text-align: center">
-          <script type="text/javascript">
-            ( function() {
-              if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
-              var unit = {"calltype":"async[2]","publisher":"theill","width":550,"height":250,"sid":"Chitika Default","color_button":"f0f0f0","color_button_text":"3399cc"};
-              var placement_id = window.CHITIKA.units.length;
-              window.CHITIKA.units.push(unit);
-              document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
-          }());
-          </script>
-          <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>            
-        </div>
--->
       </section>
       <footer>
         <p>Color Browser is a <i>fast</i>, secure and simple to use browser.</p>
@@ -76,22 +77,5 @@
       ga('send', 'pageview');
 
     </script>
-    
-    <script type="text/javascript">
-
-        // window.google_analytics_uacct = "UA-617778-10";
-        
-        // var _gaq = _gaq || [];
-        // _gaq.push(['_setAccount', 'UA-617778-10']);
-        // _gaq.push(['_setDomainName', '.commanigy.com']);
-        // _gaq.push(['_trackPageview']);
-
-        // (function() {
-        //     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        //     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        //     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        // })();
-
-    </script>    
   </body>
 </html>
