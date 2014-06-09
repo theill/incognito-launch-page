@@ -7,12 +7,10 @@
     <link rel="stylesheet" href="/css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <script type="text/javascript">
-        var trackOutboundLink = function(url) {
-         ga('send', 'event', 'outbound', 'click', url, {'hitCallback':
-           function () {
-           document.location = url;
-           }
-         });
+      var trackOutboundLink = function(url) {
+      ga('send', 'event', 'outbound', 'click', url, {
+        'hitCallback': function () { document.location = url; }
+        });
       }
     </script>
     <style type="text/css">
@@ -51,7 +49,7 @@
 
           <h3>Interested in artwork?</h3>
           <p>
-            Maybe not you .. but you toddler? Try my newest iPad app "BabyArt" - it's awesome :)
+            Maybe not you .. but your toddler? Try my newest iPad app "BabyArt" - it's awesome :)
           </p>
           <p>
             <a href="https://itunes.apple.com/us/app/baby-art-draw-beautiful-artwork/id852478507?ls=1&mt=8" onclick="trackOutboundLink('https://itunes.apple.com/us/app/baby-art-draw-beautiful-artwork/id852478507?ls=1&mt=8'); return false;">
@@ -62,7 +60,7 @@
       </section>
       <footer>
         <p>Color Browser is a <i>fast</i>, secure and simple to use browser.</p>
-        <p><small>I would appreciate if you could use half a minute and <a href="itms-apps://itunes.apple.com/app/id392746207?at=10l6dK">rate Color Browser in the App Store</a> or if you are one of the cool kids then <a href="https://coinbase.com/checkouts/c5362161561e1dd04de806afb1ec908d">Bitcoin donations</a> are welcome too.</small></p>
+        <p><small>I would appreciate if you could use half a minute and <a href="itms-apps://itunes.apple.com/app/id392746207?at=10l6dK"  onclick="trackOutboundLink('itms-apps://itunes.apple.com/app/id392746207?at=10l6dK'); return false;">rate Color Browser in the App Store</a> or if you are one of the cool kids then <a href="https://coinbase.com/checkouts/c5362161561e1dd04de806afb1ec908d" onclick="trackOutboundLink('https://coinbase.com/checkouts/c5362161561e1dd04de806afb1ec908d'); return false;">Bitcoin donations</a> are welcome too.</small></p>
       </footer>
     </div>
     <script src="/js/scale.fix.js"></script>
