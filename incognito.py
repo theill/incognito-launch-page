@@ -101,6 +101,11 @@ class BookmarkHandler(webapp.RequestHandler):
 			self.response.out.write('NOTHING PERFORMED')
 			pass
 
+class PrivacyPage(webapp2.RequestHandler):
+	def get(self):
+		path = os.path.join(os.path.dirname(__file__), 'privacy.html')
+		self.response.out.write(template.render(path, {}))
+
 class MainPage(webapp2.RequestHandler):
 	def get(self):
 		template_values = {
@@ -113,7 +118,7 @@ class MainPage(webapp2.RequestHandler):
 	def random_body_id(self):
 		return random.choice(["darkblue", "lightblue", "yellow", "lightred", "darkred"])
 
-app = webapp2.WSGIApplication([('/', MainPage)])
+app = webapp2.WSGIApplication([('/', MainPage), ('/privacy', PrivacyPage)])
 
 #def main():
 #	logging.getLogger().setLevel(logging.DEBUG)
