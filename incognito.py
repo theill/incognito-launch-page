@@ -1,19 +1,5 @@
 #!/usr/bin/env python
 #
-# Copyright 2007 Google Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
 
 import os
 import random
@@ -23,6 +9,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 from google.appengine.ext import db
 import webapp2
+import stripe
 
 class Bookmark(db.Model):
 	uuid = db.StringProperty()
@@ -106,6 +93,26 @@ class PrivacyPage(webapp2.RequestHandler):
 		path = os.path.join(os.path.dirname(__file__), 'privacy.html')
 		self.response.out.write(template.render(path, {}))
 
+class Charge(webapp2.RequestHandler):
+	def post(self):
+		path = os.path.join(os.path.dirname(__file__), 'thanks.html')
+		self.response.out.write(template.render(path, {}))
+
+		# dev: stripe.api_key = "x7bjlAXppzhibZBNtUG7Gz4lIKBefu8R"
+		stripe.api_key = "uBQbfhpYjsbvTOZlNcK4ScUNohZUtcZr"
+		token = self.request.get('stripeToken')
+
+		try:
+		  charge = stripe.Charge.create(
+			  amount=500,
+			  currency="usd",
+			  card=token,
+			  description="payinguser@example.com"
+		  )
+		except:
+		  # The card has been declined
+		  pass
+
 class MainPage(webapp2.RequestHandler):
 	def get(self):
 		template_values = {
@@ -118,7 +125,7 @@ class MainPage(webapp2.RequestHandler):
 	def random_body_id(self):
 		return random.choice(["darkblue", "lightblue", "yellow", "lightred", "darkred"])
 
-app = webapp2.WSGIApplication([('/', MainPage), ('/privacy', PrivacyPage)])
+app = webapp2.WSGIApplication([('/', MainPage), ('/privacy', PrivacyPage), ('/charge', Charge)])
 
 #def main():
 #	logging.getLogger().setLevel(logging.DEBUG)
