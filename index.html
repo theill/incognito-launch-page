@@ -26,33 +26,8 @@
       <section>
         <iframe src="http://duckduckgo.com/search.html?prefill=Search%20The%20Internet&kp=-1&k1=-1&k4=-1&kn=-1&ky=-1&ko=-1&ki=-1" style="overflow:hidden;margin:0;padding:0;width:100%;height:40px;" frameborder="0"></iframe>
 
-        <p>
-          &nbsp;
-        </p>
-
-        <center>
-          <h3>Do you like Color Browser?</h3>
-          <p>
-            Keep Color Browser clean of ads by donating five bucks some day where you feel GREAT.
-          </p>
-          <form action="/charge" method="POST">
-            <script
-              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="pk_q4FPgw2GT5zA5sW4Yahn5zeTBZqiK"
-              data-amount="500"
-              data-label="Donate five bucks"
-              data-panelLabel="Donate"
-              data-name="Color Browser"
-              data-allowRememberMe="false"
-              data-description="Donation for continued development"
-              data-image="/img/logo-72.png">
-            </script>
-          </form>
-
-              <!-- test: data-key="pk_o3dIeyyuouJziDNoSDVHGEgRmgNT4" -->
-
-
 <!--
+        <center>
           <h3>Interested in artwork?</h3>
           <p>
             Maybe not you .. but your toddler? Try my latest iPhone and iPad creation called "BabyArt" - it's awesome :)
@@ -62,18 +37,33 @@
               <img src="/img/babyart.png"> <img src="/img/appstore.png">
             </a>
           </p>
--->
         </center>
+-->
       </section>
       <footer>
-        <p>Color Browser is a <i>fast</i>, secure and simple to use browser for iPhone &amp; iPad.</p>
+        <p>Color Browser is a fast, secure and simple to use browser for iPhone &amp; iPad.</p>
 
         <hr />
 
         <center><p><small>
-          <a href="itms-apps://itunes.apple.com/app/id392746207?at=10l6dK" onclick="trackOutboundLink('itms-apps://itunes.apple.com/app/id392746207?at=10l6dK'); return false;">Write A Review</a> | 
+          <a href="itms-apps://itunes.apple.com/app/id392746207?at=10l6dK" onclick="trackOutboundLink('itms-apps://itunes.apple.com/app/id392746207?at=10l6dK'); return false;">Review App</a> | 
           <a href="mailto:color-browser@googlegroups.com" onclick="trackOutboundLink('mailto:color-browser@googlegroups.com'); return false;">Contact Us</a> | 
           <a href="/privacy" onclick="trackOutboundLink('/privacy'); return false;">Privacy Policy</a>
+          <form action="/charge" method="POST">
+            <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="pk_q4FPgw2GT5zA5sW4Yahn5zeTBZqiK"
+              data-amount="500"
+              data-label="Donate a coffee"
+              data-panelLabel="Donate"
+              data-name="Color Browser"
+              data-allowRememberMe="false"
+              data-description="Thank you <3"
+              data-image="/img/logo-72.png">
+            </script>
+          </form>
+          <!-- prod: data-key="pk_q4FPgw2GT5zA5sW4Yahn5zeTBZqiK" -->
+          <!-- test: data-key="pk_o3dIeyyuouJziDNoSDVHGEgRmgNT4" -->
         </small></p></center>
 
       </footer>

@@ -95,23 +95,23 @@ class PrivacyPage(webapp2.RequestHandler):
 
 class Charge(webapp2.RequestHandler):
 	def post(self):
-		path = os.path.join(os.path.dirname(__file__), 'thanks.html')
-		self.response.out.write(template.render(path, {}))
-
-		# dev: stripe.api_key = "x7bjlAXppzhibZBNtUG7Gz4lIKBefu8R"
-		stripe.api_key = "uBQbfhpYjsbvTOZlNcK4ScUNohZUtcZr"
+		# stripe.api_key = "x7bjlAXppzhibZBNtUG7Gz4lIKBefu8R" # dev
+		stripe.api_key = "uBQbfhpYjsbvTOZlNcK4ScUNohZUtcZr" # prod
 		token = self.request.get('stripeToken')
 
 		try:
-		  charge = stripe.Charge.create(
-			  amount=500,
-			  currency="usd",
-			  card=token,
-			  description="payinguser@example.com"
-		  )
-		except:
-		  # The card has been declined
-		  pass
+			charge = stripe.Charge.create(
+				amount=500,
+				currency="usd",
+				card=token,
+				description="Color Browser donation"
+			)
+
+			path = os.path.join(os.path.dirname(__file__), 'thanks.html')
+			self.response.out.write(template.render(path, {}))
+		except stripe.CardError, e: 
+			self.response.out.write('Sorry. Could not complete your nice donation - ' + e)
+			pass
 
 class MainPage(webapp2.RequestHandler):
 	def get(self):
