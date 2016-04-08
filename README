@@ -1,1 +1,5 @@
-appcfg.py update .
+devel:
+ $ dev_appserver.py .
+
+deploy:
+ $ appcfg.py update .
