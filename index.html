@@ -15,21 +15,41 @@
         });
       }
     </script>
-<!--     <script src="http://cdn.pubnub.com/pubnub-3.7.15.min.js"></script>
-    <script>
-      pubnub = PUBNUB({
-        publish_key   : 'pub-c-73ee6ef7-43f8-4c0e-87f4-948733b5b135',
-        subscribe_key : 'sub-c-061e65c8-79de-11e5-9720-0619f8945a4f'
-      });
+    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.0.13.min.js"></script>
+    <script type="text/javascript">
+
+      pubnub = new PubNub({
+        publishKey   : 'pub-c-73ee6ef7-43f8-4c0e-87f4-948733b5b135',
+        subscribeKey : 'sub-c-061e65c8-79de-11e5-9720-0619f8945a4f'
+      })
      
       pubnub.publish({                                    
-        channel : "hello_world",
-        message : { foo: "bar" },
-        callback: function(m){ }
-      });
+        channel : "visitors",
+        message : {
+          platform: navigator.platform,
+          userAgent: navigator.userAgent,
+          height: screen.height,
+          width: screen.width
+        },
+        callback: function(m) {
+          
+        }
+      })
+
+      pubnub.addListener({
+        message: function(message){
+          console.log(message)
+
+          document.getElementById('message').innerHTML = message.message.text
+        }
+      })
+
+      pubnub.subscribe({
+        channels: ['messages']
+      })
 
     </script>    
- -->  </head>
+   </head>
   <body>
     <div id="wrapper"></div>
     <div class="wrapper">
@@ -41,13 +61,14 @@
 
         <center>
           <p></p>
-          <h3>Feel like doing good?</h3>
+          <div id="message"></div>
+          <!--<h3>Feel like doing good?</h3>
           <p>
             Forward is an online community where you gather donations for your favorite charity by giving stuff away.
           </p>
           <p>
-            Interested? Then <a href="http://get.forwardapphq.com/app">get the app</a> or visit <a href="https://forwardapphq.com/">our web site</a> for more information.
-          </p>
+            Interested? Then <a href='http://get.forwardapphq.com/app'>get the app</a> or visit <a href='https://forwardapphq.com/'>our web site</a> for more information.
+          </p>-->
         </center>
 
 <!--         <center>
