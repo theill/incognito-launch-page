@@ -38,12 +38,18 @@
 
       pubnub.addListener({
         message: function(message) {
-          document.getElementById('message').innerHTML = message.message.text
+          // console.log(message)
+          if (message.channel === 'actions') {
+            document.getElementById('message').innerHTML = message.message.type
+          }
+          else if (message.channel === 'messages') {
+            document.getElementById('message').innerHTML = message.message.text
+          }
         }
       })
 
       pubnub.subscribe({
-        channels: ['messages'],
+        channels: ['messages', 'actions'],
         withPresence: true
       })
 
@@ -82,7 +88,7 @@
       <section>
         <iframe src="http://duckduckgo.com/search.html?prefill=Search%20The%20Internet&kp=-1&k1=-1&k4=-1&kn=-1&ky=-1&ko=-1&ki=-1" style="overflow:hidden;margin:0;padding:0;width:100%;height:40px;" frameborder="0"></iframe>
 
-        <div style="display: none; text-align: center; padding: 10px; background-color: #f9e9e9">
+        <div style="text-align: center; padding: 10px; background-color: #f9e9e9">
           <h3>It's GAAAAAAME time</h3>
           <p>
             We're trying something new on this page. Tap one of the buttons below
