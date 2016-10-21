@@ -98,16 +98,6 @@ $(function() {
           }
         };
 
-    channel.history(function(err, resultPage) {
-      for (var i = resultPage.items.length - 1; i >= 0; i--) {
-        var message = resultPage.items[i];
-        var li = $('<li></li>').
-                    text(message.data.msg).
-                    append('<div class="time">' + moment(message.timestamp).format('h:mm:ss a') + '</div>');
-        $root.find('ul.messages').prepend(li);
-      }
-    });
-      
     channel.subscribe('chat', function(message) {
       var li = $('<li></li>').
                   text(message.data.msg).
@@ -117,6 +107,16 @@ $(function() {
 
     ably.connection.on('connected', function() {
       $root.find('button').text('Send').attr('disabled', false); // we are ready to chat
+
+      channel.history(function(err, resultPage) {
+        for (var i = resultPage.items.length - 1; i >= 0; i--) {
+          var message = resultPage.items[i];
+          var li = $('<li></li>').
+                      text(message.data.msg).
+                      append('<div class="time">' + moment(message.timestamp).format('h:mm:ss a') + '</div>');
+          $root.find('ul.messages').prepend(li);
+        }
+      });  
     });
 
     textField.on('keypress', function(e) {
