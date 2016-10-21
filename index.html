@@ -101,7 +101,6 @@ $(function() {
           if (textField.val().length > 0) {
             channel.publish('chat', { msg: textField.val(), from: userName });
             textField.val('');
-            textField.blur();
           }
         };
 
