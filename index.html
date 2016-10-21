@@ -14,69 +14,6 @@
         'hitCallback': function () { document.location = url; }
         });
       }
-    </script>
-    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.0.13.min.js"></script>
-    <script type="text/javascript">
-
-      pubnub = new PubNub({
-        publishKey   : 'pub-c-73ee6ef7-43f8-4c0e-87f4-948733b5b135',
-        subscribeKey : 'sub-c-061e65c8-79de-11e5-9720-0619f8945a4f'
-      })
-     
-      pubnub.publish({
-        channel : "visitors",
-        message : {
-          platform: navigator.platform,
-          userAgent: navigator.userAgent,
-          height: screen.height,
-          width: screen.width
-        },
-        callback: function(m) {
-          
-        }
-      })
-
-      pubnub.addListener({
-        message: function(message) {
-          // console.log(message)
-          if (message.channel === 'actions') {
-            document.getElementById('message').innerHTML = message.message.type
-          }
-          else if (message.channel === 'messages') {
-            document.getElementById('message').innerHTML = message.message.text
-          }
-        }
-      })
-
-      pubnub.subscribe({
-        channels: ['messages', 'actions'],
-        withPresence: true
-      })
-
-      window.onbeforeunload = function() {
-        pubnub.unsubscribe({
-          channels: ['messages']
-        })
-      }
-
-      pubnub.hereNow({
-          channels: ['messages'],
-          includeState: true
-        },
-        function(status, response) {
-            // console.log(status, response)
-        }
-      )
-
-      function action(type) {
-        pubnub.publish({
-          channel : "actions",
-          message : {
-            type: type
-          }
-        })
-      }
-
     </script>    
    </head>
   <body>
@@ -88,31 +25,17 @@
       <section>
         <iframe src="http://duckduckgo.com/search.html?prefill=Search%20The%20Internet&kp=-1&k1=-1&k4=-1&kn=-1&ky=-1&ko=-1&ki=-1" style="overflow:hidden;margin:0;padding:0;width:100%;height:40px;" frameborder="0"></iframe>
 
-        <div style="text-align: center; padding: 10px; background-color: #f9e9e9">
-          <h3>It's GAAAAAAME time</h3>
-          <p>
-            We're trying something new on this page. Tap one of the buttons below
-          </p>
-
-          <button onclick="action('love')">love</button> 
-          <button onclick="action('hate')">hate</button> 
-          <button onclick="action('think')">think</button> 
-          <button onclick="action('believe')">believe</button> 
-          <button onclick="action('feel')">feel</button> 
-          <button onclick="action('wish')">wish</button> 
-        </div>
-
+<!--
         <center>
-          <p></p>
-          <div id="message"></div>
-          <!--<h3>Feel like doing good?</h3>
+          <h3>Feel like doing good?</h3>
           <p>
             Forward is an online community where you gather donations for your favorite charity by giving stuff away.
           </p>
           <p>
             Interested? Then <a href='http://get.forwardapphq.com/app'>get the app</a> or visit <a href='https://forwardapphq.com/'>our web site</a> for more information.
-          </p>-->
+          </p>
         </center>
+-->
 
 <!--         <center>
           <h3>Interested in artwork?</h3>
